@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+
+  "name": "Timesh!t",
+  "description": "As the name said",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_title": "That's the tool tip",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon.png"
+    },
+  },
+  "background": {
+    "scripts": [
+      "gapi.js"
+    ]
+  },
+  "content_scripts": [
+    {
+        "matches": ["http://*/*", "https://*/*"],
+        "js": ["gapi.js", "popup.js"]
+    }
+  ],
+  "content_security_policy": "script-src 'self' https://apis.google.com; object-src 'self'",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "<all_urls>"
+  ]
+}
